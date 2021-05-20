@@ -13,7 +13,6 @@ $adres = $_POST['adres'];
 $woonplaats = $_POST['woonplaats'];
 $telefoonnummer = $_POST['telefoonnummer'];
 $email = $_POST['email'];
-$dag = $_POST['dag'];
 $tijdsblok = $_POST['tijdsblok'];
 $lid = $_POST['lid'];
 $aantal =$_POST['aantal'];
@@ -24,20 +23,18 @@ if (strlen($naam) > 0 &&
     strlen($woonplaats) > 0 &&
     strlen($telefoonnummer) > 0 &&
     strlen($email) > 0 &&
-    strlen($dag) > 0 &&
     strlen($tijdsblok) > 0 &&
     strlen($lid)  > 0 &&
     strlen($aantal) > 0 ){
 
     //alle data zijn ok, maak de query
-    $query = "INSERT INTO inschrijven(naam, adres, woonplaats, telefoonnummer, email, dag, tijdsblok, lid, aantal)
+    $query = "INSERT INTO inschrijven(naam, adres, woonplaats, telefoonnummer, email, tijdsblok, lid, aantal)
               VALUES (
               '$naam', 
               '$adres',
               '$woonplaats', 
               '$telefoonnummer',
               '$email',
-              '$dag',
               '$tijdsblok',
               '$lid',
               '$aantal')";

@@ -3,6 +3,12 @@
 //lees de sessie en het config-bestand
 require_once 'session.inc.php';
 require_once 'config.inc.php';
+
+//geeft eventuele fouten weer op website
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 ?>
 
 <!doctype html>
@@ -28,13 +34,13 @@ require_once 'config.inc.php';
         <!-- Adres -->
         <p>
             <label for="adres">Adres:</label>
-            <input type="hidden" name="adres" id="adres" value="adres" required="required">
+            <input type="text" name="adres" id="adres" value="schaatsbaan" required="required">
         </p>
 
         <!-- Woonplaats -->
         <p>
             <label for="woonplaats">Woonplaats:</label>
-            <input type="hidden" name="woonplaats" id="woonplaats" value="woonplaats" required="required">
+            <input type="text" name="woonplaats" id="woonplaats" value="schaatsbaan"  required="required">
         </p>
 
         <!-- Telefoonnummer -->
@@ -48,31 +54,23 @@ require_once 'config.inc.php';
             <label for="email">Email</label>
             <input type="email" name="email" id="email" value="klantenservice@klapschaats.nl" required="required">
         </p>
-        <!-- Dag -->
-        <p>
-            <label for="dag">Dag</label>
-            <select name="dag" id="dag">
-                <option id="maandag">maandag</option>
-                <option id="dinsdag">dinsdag</option>
-                <option id="woensdag">woensdag</option>
-                <option id="donderdag">donderdag</option>
-                <option id="vrijdag">vrijdag</option>
-                <option id="zaterdag">zaterdag</option>
-                <option id="zondag">zondag</option>
-            </select>
-        </p>
 
-        <!-- TIJD -->
+
+        <!-- TIJDSBLOK -->
         <p>
-            <label for='tijdsblok'>Tijdsblok</label>
-            <select name="tijdsblok" id="tijdsblok">
-                <option id="10:00-11:30">10:00-11:30</option>
-                <option id="11:30-13:00">11:30-13:00</option>
-                <option id="13:00-14:30">13:00-14:30</option>
-                <option id="14:30-16:00">14:30-16:00</option>
-                <option id="16:00-17:30">16:00-17:30</option>
-                <option id="17:30-19:00">17:30-19:00</option>
-            </select>
+        <label for="tijdsblok">Tijdsblok:</label>
+        <select>
+            <option disabled selected>--Selecteer tijdsblok--</option>
+            <?php
+            //lees de tijdsblokken uit de database
+            $result = mysqli_query($mysqli, "SELECT tijdsblok FROM tijdblok");
+
+            while ($data = mysqli_fetch_array($result))
+            {
+                echo "<option value='".$data['tijdsblok']."'>" .$data['tijdsblok']."</option>";
+            }
+            ?>
+        </select>
         </p>
         <!-- HOEVEEL SPELERS -->
         <p>
