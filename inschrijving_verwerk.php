@@ -13,7 +13,7 @@ $adres = $_POST['adres'];
 $woonplaats = $_POST['woonplaats'];
 $telefoonnummer = $_POST['telefoonnummer'];
 $email = $_POST['email'];
-$tijdsblok = $_POST['tijdsblok'];
+$tijdsblok = $_POST['tijdsblok'];  //<-- GEEFT FOUTMELDING!!!!
 $lid = $_POST['lid'];
 $aantal =$_POST['aantal'];
 
