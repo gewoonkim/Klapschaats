@@ -6,7 +6,7 @@ require_once 'config.inc.php';
 <!doctype html>
 <head>
     <meta charset="UTF-8">
-    <title>IJSVERENIGING de Klapschaats</title>
+    <title>IJSVERENIGING de Klapschaats</title> <!-- Staat bij de URL -->
 
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -14,7 +14,7 @@ require_once 'config.inc.php';
 
 <body>
 <h1>Inschrijfformulier</h1>
-
+<div class="container">
 <!-- inschrijfformulier -->
 <form action="inschrijving_verwerk.php" method="post">
     <!-- Naam -->
@@ -75,20 +75,30 @@ require_once 'config.inc.php';
     </p>
     <!-- LID of NIET LID -->
     <p>
-    <label>
+        <label for="lid">LID:
         <input type="radio" name="lid" id="lid" value="Ja" checked="checked">
         Ja</label>
-    <br>
     <label>
         <input type="radio" name="lid" id="nietlid" value="Nee">
         Nee </label>
     </p>
 
+    <!-- AANTAL -->
+    <label for="aantal">Aantal:</label>
+    <input type="number" name="aantal" id="aantal" placeholder="aantal spelers" required="required" max="100">
+
     <!-- Submit -->
     <p>
         <input type="submit" name="submit" id="submit" value="opslaan">
         <button onclick="history.back():return false;">Annuleren</button>
-    </p>
+        </p>
 </form>
+
+        <p>Download het bevestigingsformulier</p>
+        <a href="INSCHRIJFBEVESTIGING.docx" download>
+            <img src="INSCHRIJFBEVESTIGING.png" alt="bevestiging" width="300" height="300">
+        </a>
+
+</div>
 </body>
 </html>

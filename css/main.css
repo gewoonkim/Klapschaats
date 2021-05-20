@@ -5,12 +5,13 @@ background-color: whitesmoke;
 div.container {
     text-align: center;
     padding: 10px 20px;
+    background-color: whitesmoke;
 }
 
 /*navigatie bar*/
 ul {
     list-style-type: none;
-    margin: 0;
+    margin: 10px;
     padding: 0;
     overflow: hidden;
 
@@ -25,6 +26,83 @@ li a {
     padding: 8px;
     color: indianred;
     background-color: lightblue;
+}
+/* FORMULIER */
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 16px 20px;
+    border: 3px solid #555;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+}
+
+input[type=email] {
+    width: 100%;
+    padding: 16px 20px;
+    border: 3px solid #555;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+}
+
+input[type=password] {
+    width: 100%;
+    padding: 16px 20px;
+    border: 3px solid #555;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+}
+
+input[type=number] {
+    width: 100%;
+    padding: 16px 20px;
+    border: 3px solid #555;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit] {
+    background-color: cornflowerblue;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+input[type=submit]:hover {
+    background-color: cornflowerblue;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 /* TABLE */
@@ -66,7 +144,7 @@ label {
 }
 
 input[type=submit] {
-    background-color: #4CAF50;
+    background-color: cornflowerblue;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -76,7 +154,7 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: cornflowerblue;
 }
 
 .container {
@@ -140,7 +218,19 @@ h1 {
 .button:hover {background-color: cornflowerblue}
 
 .button:active {
-    background-color: #3e8e41;
+    background-color: cornflowerblue;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
+
+/* footer */
+ .footer {
+     position: fixed;
+     left: 0;
+     bottom: 0;
+     width: 100%;
+     background-color: indianred;
+     color: white;
+     text-align: center;
+ }
+

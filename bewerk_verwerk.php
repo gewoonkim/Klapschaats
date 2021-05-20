@@ -29,15 +29,16 @@ if (strlen($id) > 0 &&
     strlen($lid) > 0) {
 
     //alle data zijn ok, maak de query
-    $query = "UPDATE inschrijven SET
-     naam = '$naam'
-     adres = '$adres'
-     woonplaats = '$woonplaats'
-     telefoonnummer = '$telefoonnummer'
-     email = '$email'
-     dag = '$dag'
-     tijdsblok = '$tijdsblok'
-     lid = '$lid' WHERE ID = $id";
+    $query = "UPDATE inschrijven 
+              SET
+                 naam = '$naam',
+                 adres = '$adres',
+                 woonplaats = '$woonplaats',
+                 telefoonnummer = '$telefoonnummer',
+                 email = '$email',
+                 dag = '$dag',
+                 tijdsblok = '$tijdsblok',
+                 lid = '$lid' WHERE ID = $id";
 
     $result = mysqli_query($mysqli, $query);
     //controleer het resultaat

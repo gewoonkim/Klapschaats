@@ -8,7 +8,7 @@ require 'config.inc.php';
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>IJSVERENIGING de Klapschaats</title>
+    <title>IJSVERENIGING de Klapschaats</title> <!-- Staat bij de URL -->
 
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -33,6 +33,7 @@ require 'config.inc.php';
 <!-- Loguit Knop -->
 <ul>
     <li><a href="logout.php">LOG UIT</a></li>
+    <li><a href="training.php">TRAINING INPLANNEN</a></li/>
 </ul>
 
 <div>
@@ -50,6 +51,8 @@ echo "<th>Tijd</th>";
 echo "<th>Naam</th>";
 echo "<th>Telefoonnummer</th>";
 echo "<th>Email</th>";
+echo "<th>Lid</th>";
+echo "<th>Aantal</th>";
 
 echo "<th>Bewerk</th>";
 echo "<th>Verwijder</th>";
@@ -70,6 +73,8 @@ while ($row = mysqli_fetch_array($result)) {
     echo "<td>" . $row['naam'] . "</td>";
     echo "<td>" . $row['telefoonnummer'] . "</td>";
     echo "<td>" . $row['email'] . "</td>";
+    echo "<td>" . $row['lid'] . "</td>";
+    echo "<td>" . $row['aantal'] . "</td>";
 
     echo "<td><a href='bewerk.php?id=" . $row['ID'] . "'>bewerk</a></td>";
     echo "<td><a href='delete.php?id=" . $row['ID'] . "'>verwijder</a></td>";
@@ -81,4 +86,18 @@ while ($row = mysqli_fetch_array($result)) {
 echo "</table>";
 ?>
 </div>
+
+<!-- FOOTER -->
+<div class="footer">
+
+    <p><h3>Ijsvereniging de Klapschaats</h3>
+    Elke dag geopend van 10:00uur tot 19:00uur zolang er natuurijs ligt.</p>
+
+    <p><h3>TOEGANGSPRIJZEN</h3>
+    Leden: Gratis
+    Niet-led: 3 euro bij ingang betalen
+    </p>
+
+</div>
+</body>
 </html>

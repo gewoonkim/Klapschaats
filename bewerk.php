@@ -3,7 +3,7 @@ require_once 'session.inc.php';
 require_once 'config.inc.php';
 
 //lees het id uit de url
-$id = $_GET['ID'];
+$id = $_GET['id'];
 
 //is het id een nummer
 if (is_numeric($id)) {
@@ -24,6 +24,7 @@ if (is_numeric($id)) {
         exit();
     }
 ?>
+
 <!doctype html>
 <head>
     <meta charset="UTF-8">
@@ -38,6 +39,8 @@ if (is_numeric($id)) {
 
 <!-- inschrijfformulier -->
 <form action="bewerk_verwerk.php" method="post">
+    <!-- ID -->
+    <input type="hidden" name="ID" value="<?php echo $id; ?>">
     <!-- Naam -->
     <p>
         <label for="naam">Naam:</label>
@@ -108,6 +111,20 @@ if (is_numeric($id)) {
     <!-- Submit -->
     <p>
         <input type="submit" name="submit" id="submit" value="opslaan">
-        <button onclick="history.back():return false;">Annuleren</button>
+<!--        <button onclick="history.back():return false;">Annuleren</button>-->
     </p>
 </form>
+
+<!-- FOOTER -->
+<div class="footer">
+
+    <p><h3>Ijsvereniging de Klapschaats</h3>
+    Elke dag geopend van 10:00uur tot 19:00uur zolang er natuurijs ligt.</p>
+
+    <p><h3>TOEGANGSPRIJZEN</h3>
+    Leden: Gratis
+    Niet-led: 3 euro bij ingang betalen
+    </p>
+</div>
+</body>
+</html>
