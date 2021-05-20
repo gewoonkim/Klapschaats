@@ -19,7 +19,23 @@ require_once 'config.inc.php';
 <div class="container">
     <!-- traning inplannen -->
     <form action="training_verwerk.php" method="post">
+        <!-- Naam -->
+        <p>
+            <label for="naam">Naam:</label>
+            <input type="text" name="naam" id="naam" value="Ijsvereniging de klapschaats" required="required">
+        </p>
 
+        <!-- Telefoonnummer -->
+        <p>
+            <label for="telefoonnummer">Telefoonnummer:</label>
+            <input type="text" name="telefoonnummer" id="telefoonnummer" value="0687654321" required="required">
+        </p>
+
+        <!-- Email -->
+        <p>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" value="klantenservice@klapschaats.nl" required="required">
+        </p>
         <!-- Dag -->
         <p>
             <label for="dag">Dag</label>

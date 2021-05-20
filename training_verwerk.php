@@ -9,6 +9,9 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 //lees alle formuliervelden
+$naam =$_POST['naam'];
+$telefoonnummer =$_POST['telefoonnummer'];
+$email =$_POST['email'];
 $dag = $_POST['dag'];
 $tijdsblok = $_POST['tijdsblok'];
 $aantal = $_POST['aantal'];
@@ -19,18 +22,23 @@ if (strlen($dag) > 0 &&
     strlen($aantal) > 0) {
 
     //alle data zijn ok, maak de query
-    $query = "INSERT INTO inschrijven(dag, tijdsblok, aantal)
-    VALUES ('$dag','$tijdsblok','$aantal')";
+    $query = "INSERT INTO inschrijven(naam, telefoonnummer, email, dag, tijdsblok, aantal)
+              VALUES ('$naam', 
+                      '$telefoonnummer',
+                      '$email',
+                      '$dag',
+                      '$tijdsblok',
+                      '$aantal')";
 
     $result = mysqli_query($mysqli, $query);
     //controleer het resultaat
     if ($result) {
-        //alles OK, ga terug naar de homepage
-        header("Location:overzicht.php");
-        exit;
-    } else {
-        echo 'Er ging iets mis met het toevoegen!';
+            //alles OK, ga terug naar de homepage
+            header("Location:overzicht.php");
+            exit;
+        } else {
+            echo 'Er ging iets mis met het toevoegen!';
+        }
+    }else {
+        echo 'Niet alle velden zijn ingevuld!';
     }
-}else {
-    echo 'Niet alle velden zijn ingevuld!';
-}

@@ -31,7 +31,16 @@ if (strlen($naam) > 0 &&
 
     //alle data zijn ok, maak de query
     $query = "INSERT INTO inschrijven(naam, adres, woonplaats, telefoonnummer, email, dag, tijdsblok, lid, aantal)
-    VALUES ('$naam', '$adres','$woonplaats', '$telefoonnummer','$email','$dag','$tijdsblok','$lid','$aantal')";
+              VALUES (
+              '$naam', 
+              '$adres',
+              '$woonplaats', 
+              '$telefoonnummer',
+              '$email',
+              '$dag',
+              '$tijdsblok',
+              '$lid',
+              '$aantal')";
 
     $result = mysqli_query($mysqli, $query);
         //controleer het resultaat
@@ -50,29 +59,7 @@ if (strlen($naam) > 0 &&
 //per tijdsblok 100 aanmeldingen
 //tel het aantal aanmeldingen per tijdsslot
 //kijk of dit minder of gelijk is aan 100
-// is het gelijk? voeg inschrijving toe
+// is het minder of gelijk? voeg inschrijving toe
 //is het hoger? geef een foutmelding
-function aantalmensen() {
-
- $query = "SELECT dag,tijdsblok AND aantal FROM inschrijven";
-
- if (aantal <100)
- {
-        //lees alle formuliervelden
-        $naam = $_POST['naam'];
-        $adres = $_POST['adres'];
-        $woonplaats = $_POST['woonplaats'];
-        $telefoonnummer = $_POST['telefoonnummer'];
-        $email = $_POST['email'];
-        $dag = $_POST['dag'];
-        $tijdsblok = $_POST['tijdsblok'];
-        $lid = $_POST['lid'];
-        $aantal =$_POST['aantal'];
-
-       $query = "INSERT INTO inschrijven(naam, adres, woonplaats, telefoonnummer, email, dag, tijdsblok, lid, aantal)
-    VALUES ('$naam', '$adres','$woonplaats', '$telefoonnummer','$email','$dag','$tijdsblok','$lid','$aantal')";
-    } else {
-     echo "Het gekozen tijdsblok zit al vol";
-    }
-}
-aantalmensen();
+//mysqli_fetch_all();
+//var_dump(explode(' ', $aantal));
