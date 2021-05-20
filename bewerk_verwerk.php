@@ -44,7 +44,7 @@ if (strlen($id) > 0 &&
     //controleer het resultaat
     if ($result) {
         //alles OK, stuur terug naar de homepage
-        header("Location:index.html");
+        header("Location:overzicht.php");
         exit;
     } else {
         echo 'Er ging iets mis met het toevoegen!';

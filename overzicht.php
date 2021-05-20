@@ -61,7 +61,7 @@ require 'config.inc.php';
     echo "</tr>";
 
     //loop door alle rijen data heen
-    $result = mysqli_query($mysqli,"SELECT * FROM inschrijven");
+    $result = mysqli_query($mysqli,"SELECT * FROM inschrijven ORDER BY tijdsblok");
     while ($row = mysqli_fetch_array($result)) {
         //start een tabelrij
         echo "<tr>";
@@ -95,7 +95,7 @@ require 'config.inc.php';
 
         <p><h3>TOEGANGSPRIJZEN</h3>
         Leden: Gratis
-        Niet-led: 3 euro bij ingang betalen
+        Niet-leden: 3 euro bij ingang betalen
         </p>
 
     </div>

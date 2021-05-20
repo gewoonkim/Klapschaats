@@ -41,7 +41,7 @@
 
     <p><h3>TOEGANGSPRIJZEN</h3>
     Leden: Gratis
-    Niet-led: 3 euro bij ingang betalen
+    Niet-leden: 3 euro bij ingang betalen
     </p>
 </div>
 </div>

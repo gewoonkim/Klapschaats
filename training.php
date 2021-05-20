@@ -25,6 +25,18 @@ require_once 'config.inc.php';
             <input type="text" name="naam" id="naam" value="Ijsvereniging de klapschaats" required="required">
         </p>
 
+        <!-- Adres -->
+        <p>
+            <label for="adres">Adres:</label>
+            <input type="hidden" name="adres" id="adres" value="adres" required="required">
+        </p>
+
+        <!-- Woonplaats -->
+        <p>
+            <label for="woonplaats">Woonplaats:</label>
+            <input type="hidden" name="woonplaats" id="woonplaats" value="woonplaats" required="required">
+        </p>
+
         <!-- Telefoonnummer -->
         <p>
             <label for="telefoonnummer">Telefoonnummer:</label>
@@ -64,8 +76,8 @@ require_once 'config.inc.php';
         </p>
         <!-- HOEVEEL SPELERS -->
         <p>
-            <label for="aantal">Aantal spelers:</label>
-                <input type="number" name="aantal" id="aantal" placeholder="aantal spelers" required="required" max="100">
+            <label for="aantal">Aantal mensen:</label>
+                <input type="number" name="aantal" id="aantal" placeholder="aantal mensen" required="required" max="100">
         </p>
 
         <!-- Submit -->
@@ -87,7 +99,7 @@ require_once 'config.inc.php';
     <p>
     <h3>TOEGANGSPRIJZEN</h3>
     Leden: Gratis
-    Niet-led: 3 euro bij ingang betalen
+    Niet-leden: 3 euro bij ingang betalen
     </p>
 
 </div>
