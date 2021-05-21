@@ -13,9 +13,9 @@ $adres = $_POST['adres'];
 $woonplaats = $_POST['woonplaats'];
 $telefoonnummer = $_POST['telefoonnummer'];
 $email = $_POST['email'];
-$dag = $_POST['dag'];
 $tijdsblok = $_POST['tijdsblok'];
 $lid = $_POST['lid'];
+$aantal = $_POST['aantal'];
 
 //controleer of alle velden zijn ingevuld
 if (strlen($id) > 0 &&
@@ -24,9 +24,9 @@ if (strlen($id) > 0 &&
     strlen($woonplaats) > 0 &&
     strlen($telefoonnummer) > 0 &&
     strlen($email) > 0 &&
-    strlen($dag) > 0 &&
     strlen($tijdsblok) > 0 &&
-    strlen($lid) > 0) {
+    strlen($lid) > 0 &&
+    strlen($aantal) > 0) {
 
     //alle data zijn ok, maak de query
     $query = "UPDATE inschrijven 
@@ -36,9 +36,19 @@ if (strlen($id) > 0 &&
                  woonplaats = '$woonplaats',
                  telefoonnummer = '$telefoonnummer',
                  email = '$email',
-                 dag = '$dag',
                  tijdsblok = '$tijdsblok',
-                 lid = '$lid' WHERE ID = $id";
+                 lid = '$lid' 
+                 aantal = '$aantal' WHERE ID = $id";
+
+    //kijk of er nog genoeg ruimte is in het geselecteerde tijdvak
+    $count = mysqli_query($mysqli, "SELECT COUNT(tijdsblok) FROM inschrijven");
+    if ( ($count) < 100) {
+        //alle data zijn ok, maak de query
+        $query;
+    }else {
+        echo "Dit tijdsblok is al bezet!";
+        header("Location:inschrijven.php");
+    }
 
     $result = mysqli_query($mysqli, $query);
     //controleer het resultaat

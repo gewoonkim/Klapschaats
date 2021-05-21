@@ -2,6 +2,11 @@
 //lees het config-bestand
 require_once 'config.inc.php';
 
+//geeft eventuele fouten weer op website
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 //lees alle formuliervelden
 $username = $_POST['username'];
 $password =$_POST['password'];

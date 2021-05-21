@@ -14,25 +14,32 @@ $adres = 'schaatsbaan';
 $woonplaats = 'schaatsbaan';
 $telefoonnummer =$_POST['telefoonnummer'];
 $email =$_POST['email'];
-$dag = $_POST['dag'];
 $tijdsblok = $_POST['tijdsblok'];
 $aantal = $_POST['aantal'];
 
 //controleer of alle velden zijn ingevuld
-if (strlen($dag) > 0 &&
-    strlen($tijdsblok) > 0 &&
+if (strlen($tijdsblok) > 0 &&
     strlen($aantal) > 0) {
 
     //alle data zijn ok, maak de query
-    $query = "INSERT INTO inschrijven(naam, adres, woonplaats, telefoonnummer, email, dag, tijdsblok, aantal)
+    $query = "INSERT INTO inschrijven(naam, adres, woonplaats, telefoonnummer, email, tijdsblok, aantal)
               VALUES ('$naam', 
                       '$adres',
                       '$woonplaats',
                       '$telefoonnummer',
                       '$email',
-                      '$dag',
                       '$tijdsblok',
                       '$aantal')";
+
+    //kijk of er nog genoeg ruimte is in het geselecteerde tijdvak
+    $count = mysqli_query($mysqli, "SELECT COUNT(tijdsblok) FROM inschrijven");
+    if ( ($count) < 100) {
+        //alle data zijn ok, maak de query
+        $query;
+    }else {
+        echo "Dit tijdsblok is al bezet!";
+        header("Location:inschrijven.php");
+    }
 
     $result = mysqli_query($mysqli, $query);
     //controleer het resultaat

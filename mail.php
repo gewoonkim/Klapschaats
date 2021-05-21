@@ -1,37 +1,29 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+
 require_once('src/PHPMailer.php');
 require_once('src/Exception.php');
+require 'src/SMTP.php';
 
 $mail = new PHPMailer;
-
-$mail = new PHPMailer();
 $mail->isSMTP();
-$mail->Host = 'smtp.mailtrap.io';
+$mail->SMTPDebug = 2; // 0 = off (for production use) - 1 = client messages - 2 = client and server messages
+$mail->Host = "smtp.gmail.com"; // use $mail->Host = gethostbyname('smtp.gmail.com'); // if your network does not support SMTP over IPv6
+$mail->Port = 587; // TLS only
+$mail->SMTPSecure = 'tls'; // ssl is depracated
 $mail->SMTPAuth = true;
-$mail->Port = 2525;
 $mail->Username = 'c69c9895dbbd17';
 $mail->Password = '4ed039861c6063';
+$mail->setFrom('83228@glr.nl', 'kim van Middelkoop');
+$mail->addAddress($email, $naam);
+$mail->Subject = 'inschrijf bevestiging';
+$mail->msgHTML("test body"); //$mail->msgHTML(file_get_contents('contents.html'), __DIR__); //Read an HTML message body from an external file, convert referenced images to embedded,
+$mail->AltBody = 'HTML messaging not supported';
+// $mail->addAttachment('images/phpmailer_mini.png'); //Attach an image file
 
-$mail->From = 'from@example.com';
-$mail->FromName = 'Mailer';
-$mail->addAddress('joe@example.net', 'Joe User');     // Add a recipient
-$mail->addAddress('ellen@example.com');               // Name is optional
-$mail->addReplyTo('info@example.com', 'Information');
-
-$mail->WordWrap = 50;                                 // Set word wrap to 50 characters
-$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-$mail->isHTML(true);
-
-$mail->Subject = 'Bedankt voor je inschrijving';
-$mail->Body    = 'Je inschrijving is succesvol ontvangen';
-$mail->AltBody = 'Je inschrijving is succesvol ontvangen';
-
-if(!$mail->send()) {
-    echo 'Message could not be sent.';
-    echo 'Mailer Error: ' . $mail->ErrorInfo;
-} else {
-    echo 'Message has been sent';
+if(!$mail->send()){
+    echo "Mailer Error: " . $mail->ErrorInfo;
+}else{
+    echo "Message sent!";
 }

@@ -2,6 +2,11 @@
     require_once 'session.inc.php';
     require_once 'config.inc.php';
 
+    //geeft eventuele fouten weer op website
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
     //lees het id uit de url
     $id = $_GET['id'];
 
@@ -27,15 +32,19 @@
     <!doctype html>
     <head>
         <meta charset="UTF-8">
-        <title>IJSVERENIGING de Klapschaats</title>
+        <title>IJSVERENIGING de Klapschaats</title> <!-- title bij url -->
+        <link rel="icon" href="assets/schaatsbaan.jpeg"><!-- icon bij url -->
 
         <!-- css -->
         <link rel="stylesheet" type="text/css" href="css/main.css">
     </head>
 
     <body>
-    <div class="container">
+<div class="title">
     <h1>Inschrijving verwijderen</h1>
+</div>
+
+    <div class="container">
 
     <p>Weet u zeker dat u de inschrijving van <strong><?php echo $row['naam']?></strong>
         met de tijd  <strong><?php echo $row['tijdsblok']?></strong>  wilt verwijderen?
@@ -47,6 +56,7 @@
     </p>
 
     </div>
+
     <!-- FOOTER -->
     <div class="footer">
 
@@ -54,9 +64,10 @@
         Elke dag geopend van 10:00uur tot 19:00uur zolang er natuurijs ligt.</p>
 
         <p><h3>TOEGANGSPRIJZEN</h3>
-        Leden: Gratis
+        Leden: Gratis<br>
         Niet-leden: 3 euro bij ingang betalen
         </p>
+
     </div>
     </body>
     </html>

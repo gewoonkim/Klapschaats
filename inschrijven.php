@@ -12,6 +12,7 @@
     <head xmlns="http://www.w3.org/1999/html">
         <meta charset="UTF-8">
         <title>IJSVERENIGING de Klapschaats</title> <!-- Staat bij de URL -->
+        <link rel="icon" href="assets/schaatsbaan.jpeg"><!-- icon bij url -->
 
         <!-- css -->
         <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -51,14 +52,14 @@
 
         <!-- Email -->
         <p>
-            <label for="email">Email</label>
+            <label for="email">Email:</label>
             <input type="email" name="email" id="email" placeholder="test@test.com" required="required">
         </p>
 
         <!-- TIJDSBLOK -->
         <p>
-            <label for='tijdsblok'>Tijdsblok</label>
-            <select>
+            <label for='tijdsblok'>Tijdsblok:</label>
+            <select name="tijdsblok" >
                 <option disabled selected id="tijdsblok">--Selecteer tijdsblok--</option>
                 <?php
                 //lees de tijdsblokken uit de database
@@ -88,15 +89,9 @@
 
         <!-- Submit -->
         <p>
-            <input type="submit" name="submit" id="submit" value="opslaan">
-            <button onclick="history.back():return false;">Annuleren</button>
+            <input type="submit" name="submit" id="submit" value="Opslaan">
             </p>
     </form>
-
-            <p>Download het bevestigingsformulier</p>
-            <a href="INSCHRIJFBEVESTIGING.docx" download>
-                <img src="INSCHRIJFBEVESTIGING.png" alt="bevestiging" width="300" height="300">
-            </a>
 
     </div>
     </body>

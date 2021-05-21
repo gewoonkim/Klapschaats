@@ -9,6 +9,7 @@ require 'config.inc.php';
     <head>
         <meta charset="UTF-8">
         <title>IJSVERENIGING de Klapschaats</title> <!-- Staat bij de URL -->
+        <link rel="icon" href="assets/schaatsbaan.jpeg"><!-- icon bij url -->
 
         <!-- css -->
         <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -29,14 +30,18 @@ require 'config.inc.php';
             }
         </style>
     </head>
-    <body>
-    <!-- Loguit Knop -->
-    <ul>
-        <li><a href="logout.php">LOG UIT</a></li>
-        <li><a href="training.php">TRAINING INPLANNEN</a></li/>
-    </ul>
 
-    <div>
+    <body>
+    <div class="title">
+        <!-- Loguit Knop -->
+        <ul>
+            <li><a href="logout.php">LOG UIT</a></li>
+            <li><a href="training.php">TRAINING INPLANNEN</a></li/>
+        </ul>
+
+        <h1 style="text-align: center; padding-bottom: 15px;" >Overzicht</h1>
+    </div>
+
     <?php
     //start de tabel
     echo "<table>";
@@ -46,11 +51,10 @@ require 'config.inc.php';
 
     //maak de cellen voor de kopjes
     echo "<th>ID</th>";
-    echo "<th>Dag</th>";
-    echo "<th>Tijd</th>";
     echo "<th>Naam</th>";
     echo "<th>Telefoonnummer</th>";
     echo "<th>Email</th>";
+    echo "<th>Tijdsblok</th>";
     echo "<th>Lid</th>";
     echo "<th>Aantal</th>";
 
@@ -68,11 +72,10 @@ require 'config.inc.php';
 
         //maak de cellen voor de gegevens
         echo "<td>" . $row['ID'] . "</td>";
-        echo "<td>" . $row['dag'] . "</td>";
-        echo "<td>" . $row['tijdsblok'] . "</td>";
         echo "<td>" . $row['naam'] . "</td>";
         echo "<td>" . $row['telefoonnummer'] . "</td>";
         echo "<td>" . $row['email'] . "</td>";
+        echo "<td>" . $row['tijdsblok'] . "</td>";
         echo "<td>" . $row['lid'] . "</td>";
         echo "<td>" . $row['aantal'] . "</td>";
 
